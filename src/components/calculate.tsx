@@ -14,14 +14,25 @@ export function Calculate({ price, crow }: CalculateProps) {
   function handleAveragePrice(e: ChangeEvent<HTMLInputElement>) {
     setAveragePrice(Number(e.target.value))
   }
+  const priceDiamondShop = 0.0125
+  const newPriceDiamond = crow / 80
 
-  const result = 0.0125 * averagePrice
+  const result = newPriceDiamond * averagePrice
   const marketPrice = result - result * (5 / 100)
   const priceInCrow = result / crow
   const profit = marketPrice - price
   const profitInCrow = profit / crow
 
-  console.log({ profit, result, marketPrice, priceInCrow, profitInCrow })
+  console.log({
+    profit,
+    result,
+    marketPrice,
+    priceInCrow,
+    profitInCrow,
+    priceDiamondShop,
+    newPriceDiamond,
+  })
+  // console.log({ newPriceDiamond })
 
   return (
     <div className="flex items-center w-full h-full bg-zinc-800 p-5">

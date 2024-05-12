@@ -60,6 +60,8 @@ export default async function Home() {
   const coinList = await getPriceList()
   const crow = await getCrowToken()
 
+  const priceDiamondInCrow = crow.price / 80
+
   return (
     <div className="flex items-center justify-center w-full h-screen">
       <div className="flex flex-col w-[980px]">
@@ -78,13 +80,34 @@ export default async function Home() {
             </div>
           </div>
           <div className="flex items-center w-full h-full bg-zinc-800 p-5">
-            <Image
-              src="https://gcdn.wemade.games/prod/ncgl/official/2.2.0/_next/static/images/token/diagram-vdia.webp"
-              width={40}
-              height={40}
-              alt="Diamond"
-            />
-            <p className="text-3xl">= $0.0125</p>
+            <div className="flex items-center w-full h-full">
+              {'(SHOP)'}
+              <Image
+                src="https://gcdn.wemade.games/prod/ncgl/official/2.2.0/_next/static/images/token/diagram-vdia.webp"
+                width={40}
+                height={40}
+                alt="Diamond"
+              />
+              <p className="text-3xl">= $0.0125</p>
+            </div>
+
+            <div className="flex items-center w-full h-full">
+              {'(CROW)'}
+              <Image
+                src="https://gcdn.wemade.games/prod/ncgl/official/2.2.0/_next/static/images/token/diagram-vdia.webp"
+                width={40}
+                height={40}
+                alt="Diamond"
+              />
+              <p className="text-3xl">
+                ={' '}
+                {priceDiamondInCrow.toLocaleString('en', {
+                  style: 'currency',
+                  currency: 'USD',
+                  minimumFractionDigits: 4,
+                })}
+              </p>
+            </div>
           </div>
         </div>
 
