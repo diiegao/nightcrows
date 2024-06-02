@@ -5,6 +5,7 @@ const nextConfig = {
       'cache.pnix.exchange',
       'gcdn.wemade.games',
       'cache.wemixplay.com',
+      'live-dl.nightcrows.com',
     ],
   },
 }

@@ -49,7 +49,7 @@ export function Calculate({ price, crow }: CalculateProps) {
           onFocus={(e) => e.target.select()}
           onChange={handleAveragePrice}
           placeholder="1000"
-          className="w-[130px] p-3 mx-1 text-3xl border-none bg-transparent"
+          className="w-[130px] p-3 mx-1 text-3xl border-none bg-transparent focus-visible:outline-none"
         />
       </div>
       <div className="flex items-center">
