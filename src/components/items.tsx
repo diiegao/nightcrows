@@ -32,15 +32,15 @@ export function Items({ tokens }: ItemsProps) {
 
   const getPapyrusPrice = tokens.find((coin) => coin.token.name === 'PAPYRUS')
   const pricePapyrus =
-    getPapyrusPrice && getPapyrusPrice.daySummary.close * 3 * qtdItems
+    getPapyrusPrice && getPapyrusPrice.daySummary.close * 6 * qtdItems
   const pricePapyrusUSD =
-    getPapyrusPrice && getPapyrusPrice.daySummary.closeDollar * 3 * qtdItems
+    getPapyrusPrice && getPapyrusPrice.daySummary.closeDollar * 6 * qtdItems
 
   const getMorionPrice = tokens.find((coin) => coin.token.name === 'MORION')
   const priceMorion =
-    getMorionPrice && getMorionPrice.daySummary.close * 3 * qtdItems
+    getMorionPrice && getMorionPrice.daySummary.close * 6 * qtdItems
   const priceMorionUSD =
-    getMorionPrice && getMorionPrice.daySummary.closeDollar * 3 * qtdItems
+    getMorionPrice && getMorionPrice.daySummary.closeDollar * 6 * qtdItems
 
   const totalPrice = pricePapyrus! + priceMorion!
   const totalPriceUSD = pricePapyrusUSD! + priceMorionUSD!
