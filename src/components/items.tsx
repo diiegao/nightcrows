@@ -45,6 +45,8 @@ export function Items({ tokens }: ItemsProps) {
   const totalPrice = pricePapyrus! + priceMorion!
   const totalPriceUSD = pricePapyrusUSD! + priceMorionUSD!
 
+  const totalItems = qtdItems * 6
+
   function handleQtdItems(e: ChangeEvent<HTMLInputElement>) {
     setQtdItems(Number(e.target.value))
   }
@@ -71,12 +73,17 @@ export function Items({ tokens }: ItemsProps) {
         <p>{totalGold.toLocaleString('pt-br')}</p>
       </div>
       <div className="flex items-center gap-4">
-        <Image
-          src="https://live-dl.nightcrows.com/data/image/discovery/235350/Game/UI/Tex/Item/Material/UI_Texture_Item_Material_Craft_Buff_Scroll_003.png"
-          width={40}
-          height={40}
-          alt="GOLD"
-        />
+        <div className="relative text-3xsxs">
+          <span className="absolute right-0 bottom-0 text-white">
+            x{totalItems}
+          </span>
+          <Image
+            src="https://live-dl.nightcrows.com/data/image/discovery/235350/Game/UI/Tex/Item/Material/UI_Texture_Item_Material_Craft_Buff_Scroll_003.png"
+            width={40}
+            height={40}
+            alt="GOLD"
+          />
+        </div>
         <div className="flex items-center flex-col">
           <p className="flex">
             <Image
@@ -100,12 +107,17 @@ export function Items({ tokens }: ItemsProps) {
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <Image
-          src="https://live-dl.nightcrows.com/data/image/discovery/235350/Game/UI/Tex/Item/Material/UI_Texture_Item_Material_Ruler_Stone.png"
-          width={40}
-          height={40}
-          alt="GOLD"
-        />
+        <div className="relative text-3xsxs">
+          <span className="absolute right-0 bottom-0 text-white">
+            x{totalItems}
+          </span>
+          <Image
+            src="https://live-dl.nightcrows.com/data/image/discovery/235350/Game/UI/Tex/Item/Material/UI_Texture_Item_Material_Ruler_Stone.png"
+            width={40}
+            height={40}
+            alt="GOLD"
+          />
+        </div>
         <div className="flex items-center flex-col">
           <p className="flex">
             <Image
