@@ -20,32 +20,30 @@ interface TokenList {
   }
 }
 
-interface CrowToken {
-  icon: string
-  price: number
-}
-
 interface ItemsProps {
   tokens: TokenList[]
-  crow: CrowToken
 }
 
-export function Items({ tokens, crow }: ItemsProps) {
-  console.log({ tokens, crow })
+export function Items({ tokens }: ItemsProps) {
+  // console.log({ tokens, crow })
   const [qtdItems, setQtdItems] = useState<number>(1)
 
   const totalGold = 750000 * qtdItems
 
   const getPapyrusPrice = tokens.find((coin) => coin.token.name === 'PAPYRUS')
-  const pricePapyrus = getPapyrusPrice?.daySummary.close * 3 * qtdItems
-  const pricePapyrusUSD = getPapyrusPrice?.daySummary.closeDollar * 3 * qtdItems
+  const pricePapyrus =
+    getPapyrusPrice && getPapyrusPrice.daySummary.close * 3 * qtdItems
+  const pricePapyrusUSD =
+    getPapyrusPrice && getPapyrusPrice.daySummary.closeDollar * 3 * qtdItems
 
   const getMorionPrice = tokens.find((coin) => coin.token.name === 'MORION')
-  const priceMorion = getMorionPrice?.daySummary.close * 3 * qtdItems
-  const priceMorionUSD = getMorionPrice?.daySummary.closeDollar * 3 * qtdItems
+  const priceMorion =
+    getMorionPrice && getMorionPrice.daySummary.close * 3 * qtdItems
+  const priceMorionUSD =
+    getMorionPrice && getMorionPrice.daySummary.closeDollar * 3 * qtdItems
 
-  const totalPrice = pricePapyrus + priceMorion
-  const totalPriceUSD = pricePapyrusUSD + priceMorionUSD
+  const totalPrice = pricePapyrus! + priceMorion!
+  const totalPriceUSD = pricePapyrusUSD! + priceMorionUSD!
 
   function handleQtdItems(e: ChangeEvent<HTMLInputElement>) {
     setQtdItems(Number(e.target.value))
@@ -87,13 +85,13 @@ export function Items({ tokens, crow }: ItemsProps) {
               height={20}
               alt="CROW"
             />
-            {pricePapyrus.toLocaleString('en', {
+            {pricePapyrus!.toLocaleString('en', {
               minimumFractionDigits: 4,
             })}
           </p>
           <p className="text-zinc-300">
             {'('}
-            {pricePapyrusUSD.toLocaleString('en', {
+            {pricePapyrusUSD!.toLocaleString('en', {
               style: 'currency',
               currency: 'USD',
             })}
@@ -116,13 +114,13 @@ export function Items({ tokens, crow }: ItemsProps) {
               height={20}
               alt="CROW"
             />
-            {priceMorion.toLocaleString('en', {
+            {priceMorion!.toLocaleString('en', {
               minimumFractionDigits: 4,
             })}
           </p>
           <p className="text-zinc-300">
             {'('}
-            {priceMorionUSD.toLocaleString('en', {
+            {priceMorionUSD!.toLocaleString('en', {
               style: 'currency',
               currency: 'USD',
             })}
