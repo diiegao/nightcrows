@@ -36,9 +36,9 @@ export default async function Tier2() {
   const coinList = await getPriceList()
   return (
     <div className="flex justify-center w-full h-screen">
-      <div className="flex flex-col w-[980px] m-32">
+      <div className="flex flex-col w-[1200px] m-32">
         <div className="flex items-center justify-between w-full h-[90px] mb-1">
-          <div className="flex items-center w-full h-full p-5 bg-zinc-900">
+          <div className="flex items-center w-full h-full">
             <Items tokens={coinList} />
           </div>
         </div>
